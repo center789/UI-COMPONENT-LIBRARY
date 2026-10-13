@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="blue">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="TACTILE 实体触感组件库，包含 64 组组件、5 套主题、网页示例与 800×480 屏幕预览。">
+  <title>TACTILE — 网页与 LVGL 组件库</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="studio.css?v=6"><link rel="stylesheet" href="materials.css?v=6"><link rel="stylesheet" href="recessed-controls.css?v=6"><link rel="stylesheet" href="component-materials.css?v=6"><script src="icons.js?v=6" defer></script><script src="recessed-controls.js?v=6" defer></script><script src="component-catalog.js?v=6" defer></script><script src="studio.js?v=6" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+<aside class="sidebar">
+  <a href="#" class="brand"><span class="brand-symbol">t.</span><span>TACTILE<small>UI COMPONENT LIBRARY</small></span></a>
+  <div class="sidebar-label">预览 / PREVIEW</div>
+  <nav id="view-nav" aria-label="预览类型">
+    <button class="nav-item active" data-view="components" aria-pressed="true"><span>◫</span>组件总览<small id="nav-count">64</small></button>
+    <button class="nav-item" data-view="pages" aria-pressed="false"><span>▤</span>网页组合页<small>03</small></button>
+    <button class="nav-item" data-view="device" aria-pressed="false"><span>▣</span>LVGL 设备屏<small>9.x</small></button>
+    <button class="nav-item" data-view="tokens" aria-pressed="false"><span>◈</span>材质与规范<small>05</small></button>
+  </nav>
+  <div class="sidebar-label">组件分类 / COLLECTION</div>
+  <nav id="category-nav" aria-label="组件分类"></nav>
+</aside>
+<div class="workspace">
+  <header class="topbar"><span class="crumb">组件库 <span>/</span> 交互预览</span><div class="top-actions"><span class="tiny-tag">WEB + LVGL</span><button class="plain-btn" id="reset-demo">重置 ↺</button></div></header>
+  <main id="main">
+    <header class="hero"><div><p class="overline">TANGIBLE INTERFACES, THOUGHTFULLY MADE.</p><h1 id="view-title">实体界面组件库<span>。</span></h1><p id="view-description">从一颗旋钮，到一整个产品。用同一种材质，组织每一次操作。</p></div><div class="hero-mark" aria-hidden="true"><div class="hero-rim"><div class="hero-cap"><i></i></div></div><span>CRAFTED TO FEEL</span></div></header>
+    <section class="control-bar" aria-label="预览控制">
+      <div class="themes" role="group" aria-label="材质选择"><button data-theme-value="blue" aria-pressed="true"><i class="swatch blue"></i>冷灰蓝</button><button data-theme-value="silver" aria-pressed="false"><i class="swatch silver"></i>银雾</button><button data-theme-value="graphite" aria-pressed="false"><i class="swatch graphite"></i>石墨</button><button data-theme-value="warm" aria-pressed="false"><i class="swatch warm"></i>机械银</button><button data-theme-value="avocado" aria-pressed="false"><i class="swatch avocado"></i>牛油果绿</button></div>
+      <label class="searchbox"><span aria-hidden="true">⌕</span><input id="component-search" type="search" placeholder="搜索组件、状态或 LVGL 控件" aria-label="搜索组件"></label>
+    </section>
+    <section id="components-view" class="view"><div class="collection-bar"><div><strong id="result-count">64 个组件</strong><span id="active-category">全部组件 / ALL COMPONENTS</span></div><label class="mobile-category-label"><span class="sr-only">组件分类</span><select id="mobile-category" class="select" aria-label="组件分类"></select></label><label class="compact-control check-label"><input id="compact-toggle" type="checkbox">紧凑视图</label></div><div id="component-grid" class="component-grid"></div><div id="no-results" class="no-results" hidden>没有找到匹配的组件。换个关键词试试。</div></section>
+    <section id="pages-view" class="view" hidden><div class="page-tabs segmented" role="group" aria-label="网页示例"><button data-page="dashboard" aria-pressed="true">设备仪表台</button><button data-page="assistant" aria-pressed="false">创作工作台</button><button data-page="settings" aria-pressed="false">产品设置页</button></div><div id="page-preview"></div></section>
+    <section id="device-view" class="view" hidden>
+      <div class="device-tools"><div class="segmented" role="group" aria-label="设备页面"><button data-device-page="control" aria-pressed="true">设备控制</button><button data-device-page="settings" aria-pressed="false">系统设置</button><button data-device-page="audio" aria-pressed="false">音频面板</button></div><label class="check-label"><input id="device-pixel" type="checkbox">按 1:1 像素显示</label></div>
+      <div class="device-scroll"><div class="device-frame"><div class="device-screen" id="device-screen"></div></div></div>
+      <div class="device-caption"><span>800 × 480 · 浏览器预览</span><span>LVGL 9.x</span></div>
+      <div class="mapping-panel"><h2>LVGL 开发资源</h2><p>下载样式起点与页面示例，查看控件映射和适配文档。</p><div class="row wrap"><a class="btn" href="lvgl/tactile_theme.h" download>下载头文件 ↓</a><a class="btn" href="lvgl/tactile_theme.c" download>下载样式与示例 ↓</a><a class="text-link" href="../references/lvgl-design.md" target="_blank" rel="noopener">适配文档 ↗</a></div></div>
+    </section>
+    <section id="tokens-view" class="view" hidden><div id="token-preview"></div></section>
+    <footer class="studio-footer"><span>TACTILE UI COMPONENT LIBRARY</span><span>64 组组件 · 5 套主题</span></footer>
+  </main>
+</div>
+<dialog id="demo-dialog" class="modal"><div class="modal-heading"><h2 id="dialog-title">操作确认</h2><button class="icon-btn" data-close-dialog aria-label="关闭对话框">×</button></div><div id="dialog-content"></div><div id="dialog-actions" class="modal-actions"></div></dialog>
+<div id="drawer-backdrop" class="drawer-backdrop" hidden></div><aside id="demo-drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden><div class="modal-heading"><h2 id="drawer-title">设备详情</h2><button class="icon-btn" id="close-drawer" aria-label="关闭侧栏">×</button></div><div class="drawer-body"><span class="badge success">运行正常</span><h3>Studio Hub 01</h3><p>显示规格、设备参数与连接状态。</p><dl class="property-list"><div><dt>设备型号</dt><dd>TH-800</dd></div><div><dt>显示分辨率</dt><dd>800 × 480</dd></div><div><dt>接口状态</dt><dd>已连接</dd></div></dl><button class="btn primary" data-toast="示例配置已保存">保存配置</button></div></aside>
+<div id="toast-stack" class="toast-stack" aria-live="polite" aria-atomic="false"></div>
+</body>
+</html>

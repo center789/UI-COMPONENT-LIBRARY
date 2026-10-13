@@ -1,0 +1,6 @@
+interface:
+  display_name: "实体触感 · 个人产品设计"
+  short_description: "按用途统一凹凸层次，为网页与 LVGL 9.x 设计实体触感组件，支持五套配色与红绿状态"
+  default_prompt: "使用 $my-product-style 设计网页或 LVGL 9.x 的 800×480 界面，按用途分配平面、浅凸外壳、凸起操作面和凹槽；选择项选中时升起，未选中保留原面，补齐组件、交互和红绿状态反馈。"
+policy:
+  allow_implicit_invocation: true

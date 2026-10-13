@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>实体触感 · 个人设计样式</title>
+  <link rel="stylesheet" href="tactile-ui.css">
+  <script src="gallery.js" defer></script>
+</head>
+<body>
+<main class="shell">
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">Personal design collection / Vol. 01</p>
+      <h1>让界面，有一点真实的触感。</h1>
+      <p class="intro">冷灰蓝工作台 · 银雾金属 · 石墨启动台 · 精密机械控制</p>
+    </div>
+    <div class="serial">MY PRODUCT STYLE<br>12 INTERACTIVE SPECIMENS<div class="palette"><i style="background:#e1e9f1"></i><i style="background:#b5c8cc"></i><i style="background:#4a494e"></i><i style="background:#66a7fb"></i><i style="background:#e3a560"></i></div></div>
+  </header>
+  <section class="grid" aria-label="12 种可交互组件">
+    <article class="specimen">
+      <div class="spec-head"><span class="number">01</span><h2>胶囊动作按钮</h2></div>
+      <div class="stage"><button class="raised pill" id="create-button">开始创作 ↗</button><button class="raised icon-key" id="save-button" aria-label="收藏样式" aria-pressed="false">☆</button></div>
+      <p class="caption" id="action-status" aria-live="polite">浅色坡面 / 按下回缩</p>
+    </article>
+    <article class="specimen">
+      <div class="spec-head"><span class="number">02</span><h2>凹槽搜索框</h2></div>
+      <div class="stage"><form class="slot search" id="search-form"><label class="sr-only" for="query">搜索样式</label><input id="query" placeholder="寻找一个好想法…" required><button type="submit" aria-label="搜索">↗</button></form></div>
+      <p class="caption" id="search-status" aria-live="polite">同色输入槽 / 上暗下亮</p>
+    </article>
+    <article class="specimen">
+      <div class="spec-head"><span class="number">03</span><h2>模式分段选择</h2></div>
+      <div class="stage"><div class="slot segments" role="group" aria-label="创作模式"><button aria-pressed="true">灵感</button><button aria-pressed="false">专注</button><button aria-pressed="false">探索</button></div></div>
+      <p class="caption" id="mode-status" aria-live="polite">当前模式：灵感 / 槽内凸面</p>
+    </article>
+    <article class="specimen">
+      <div class="spec-head"><span class="number">04</span><h2>磁吸开关</h2></div>
+      <div class="stage"><div class="stack"><button class="slot switch" id="quiet-switch" role="switch" aria-checked="true" aria-label="专注模式"></button><span class="reading" id="quiet-status">专注模式 · 已开启</span></div></div>
+      <p class="caption">银色圆帽 / 状态指示灯</p>
+    </article>
+    <article class="specimen">
+      <div class="spec-head"><span class="number">05</span><h2>精密滑杆</h2></div>
+      <div class="stage"><div class="range-group"><div class="range-head"><label for="brightness">环境亮度</label><output id="brightness-value" for="brightness">60%</output></div><input class="range" id="brightness" type="range" min="0" max="100" value="60"></div></div>
+      <p class="caption">深槽导轨 / 金属滑块</p>
+    </article>
+    <article class="specimen">
+      <div class="spec-head"><span class="number">06</span><h2>银雾音量旋钮</h2></div>
+      <div class="stage knob-stage"><div class="knob" aria-hidden="true"><div class="knob-cap"><div class="knob-pointer"></div></div></div><div class="knob-control"><label for="volume">音量调节</label><output for="volume" id="volume-value">60%</output><input class="range" id="volume" type="range" min="0" max="100" value="60"></div></div>
+      <p class="caption">19 点刻度 / 左侧光源</p>
+    </article>
+    <article class="specimen dark">
+      <div class="spec-head"><span class="number">07</span><h2>石墨启动按钮</h2></div>
+      <div class="stage"><button class="launch" id="launch-button" aria-pressed="false" aria-label="切换运行状态"><span class="launch-well" aria-hidden="true"><span class="launch-light"></span></span><span class="launch-face"><span class="launch-symbol" aria-hidden="true">▣</span><span id="launch-label">启动</span></span></button></div>
+      <p class="caption" id="launch-status" aria-live="polite">待机 / 深色内腔</p>
+    </article>
+    <article class="specimen">
+      <div class="spec-head"><span class="number">08</span><h2>四向机械控制</h2></div>
+      <div class="stage"><div class="dpad" role="group" aria-label="方向控制"><button class="up" data-direction="上" aria-label="向上" aria-pressed="false">⌃</button><button class="left" data-direction="左" aria-label="向左" aria-pressed="false">‹</button><span class="dpad-cap" aria-hidden="true"></span><button class="right" data-direction="右" aria-label="向右" aria-pressed="false">›</button><button class="down" data-direction="下" aria-label="向下" aria-pressed="false">⌄</button></div></div>
+      <p class="caption" id="direction-status" aria-live="polite">选择方向 / 金属帽倾斜</p>
+    </article>
+    <article class="specimen">
+      <div class="spec-head"><span class="number">09</span><h2>温度设定器</h2></div>
+      <div class="stage"><div class="temperature"><button class="raised" id="temperature-down" aria-label="降低温度">−</button><output class="slot readout" id="temperature-value" aria-label="设定温度">24<small> °C</small></output><button class="raised" id="temperature-up" aria-label="提高温度">+</button></div></div>
+      <p class="caption">凹槽读数 / 16–30 °C</p>
+    </article>
+    <article class="specimen">
+      <div class="spec-head"><span class="number">10</span><h2>环形任务仪表</h2></div>
+      <div class="stage"><div class="gauge" aria-hidden="true"><div><strong>72<span style="font-size:12px">%</span></strong><small>任务完成</small></div></div><meter class="sr-only" min="0" max="100" value="72" aria-label="任务完成百分比">72%</meter></div>
+      <p class="caption">低饱和进度弧 / 内凹读数盘</p>
+    </article>
+    <article class="specimen">
+      <div class="spec-head"><span class="number">11</span><h2>连接状态条</h2></div>
+      <div class="stage"><div class="slot connection"><span class="status-led" aria-hidden="true"></span><span class="connection-text" id="connection-status" aria-live="polite">设备已连接</span><button id="connect-button">断开</button></div></div>
+      <p class="caption">细小灯点 / 文字同步状态</p>
+    </article>
+    <article class="specimen">
+      <div class="spec-head"><span class="number">12</span><h2>播放控制台</h2></div>
+      <div class="stage"><div class="transport"><div class="transport-top"><span id="player-status">计时演示</span><time id="player-time">00:00</time></div><div class="transport-keys"><button class="raised icon-key" id="reset-button" aria-label="复位计时">↺</button><button class="raised icon-key" id="play-button" aria-label="开始计时" aria-pressed="false">▶</button></div></div></div>
+      <p class="caption">传输控制键 / 金属读数面</p>
+    </article>
+  </section>
+  <footer class="footer"><span>点击、调节，也可以用 Tab 和方向键体验。</span><span>MY-PRODUCT-STYLE · 2026</span></footer>
+</main>
+</body>
+</html>
