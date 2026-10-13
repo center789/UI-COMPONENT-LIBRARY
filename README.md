@@ -4,7 +4,7 @@
 
 从按钮、输入框到旋钮、仪表和完整页面，TACTILE 用统一的材质、凹凸层次和状态规则组织界面，让每个控件都像属于同一块控制面板。
 
-![TACTILE 组件预览](references/screenshots/release-preview.png)
+![TACTILE 组件预览](references/originals/screenshots/release-preview.png)
 
 ## 项目亮点
 
