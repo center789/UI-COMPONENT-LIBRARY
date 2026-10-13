@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="bg"></div>
+
+    <div class="volume-btn" id="volumeBtn">
+        <div class="lamp-box" id="lampBox">
+            <div style="--i: 1;"><span class="act"></span></div>
+            <div style="--i: 2;"><span class="act"></span></div>
+            <div style="--i: 3;"><span class="act"></span></div>
+            <div style="--i: 4;"><span class="act"></span></div>
+            <div style="--i: 5;"><span class="act"></span></div>
+            <div style="--i: 6;"><span class="act"></span></div>
+            <div style="--i: 7;"><span class="act"></span></div>
+            <div style="--i: 8;"><span class="act"></span></div>
+            <div style="--i: 9;"><span class="act"></span></div>
+            <div style="--i: 10;"><span class="act"></span></div>
+            <div style="--i: 11;"><span></span></div>
+            <div style="--i: 12;"><span></span></div>
+            <div style="--i: 13;"><span></span></div>
+            <div style="--i: 14;"><span></span></div>
+            <div style="--i: 15;"><span></span></div>
+            <div style="--i: 16;"><span></span></div>
+            <div style="--i: 17;"><span></span></div>
+            <div style="--i: 18;"><span></span></div>
+            <div style="--i: 19;"><span></span></div>
+        </div>
+
+        <div class="light-wrapper">
+            <div class="btn-bottom">
+                <div class="btn">
+                    <div id="light-box">
+                        <div class="light"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var min = -112.5, max = 112.5, total = 19, sens = 2;
+
+            var btn = document.getElementById('volumeBtn');
+            var box = document.getElementById('light-box');
+            var lamps = document.querySelectorAll('#lampBox span');
+            var pointer = document.querySelector('#light-box .light');
+
+            var angle = 0, dragging = false, startY = 0, startA = 0;
+
+            function update(a) {
+                if (a < min) a = min;
+                if (a > max) a = max;
+                angle = a;
+
+                box.style.rotate = a + 'deg';
+
+                var p = (a - min) / (max - min);
+                var n = Math.round(p * total);
+
+                lamps.forEach(function (s, i) {
+                    s.classList.toggle('act', i < n);
+                });
+
+                pointer.classList.toggle('off', a <= min);
+            }
+
+            btn.addEventListener('mousedown', function (e) {
+                dragging = true;
+                startY = e.clientY;
+                startA = angle;
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', function (e) {
+                if (!dragging) return;
+                var dy = startY - e.clientY;  //Y差值
+                update(startA + dy / sens);
+            });
+
+            function end() { dragging = false; }
+            document.addEventListener('mouseup', end);
+            document.addEventListener('mouseleave', end);
+
+            btn.addEventListener('wheel', function (e) {
+                e.preventDefault();
+                update(angle + (e.deltaY > 0 ? -5 : 5));
+            });
+
+            update(0);
+        })();
+    </script>
+</body>
+</html>

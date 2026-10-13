@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(0, #c2ccd3,#EEEFF1);
+}
+
+.container {
+    position: relative;
+
+    .around {
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-image: linear-gradient(0, #f5f8fa, #9da4a8);
+
+        .handle {
+            width: 155px;
+            height: 155px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background: #c5d1da;
+            box-shadow:
+                    0 0 10px rgba(0, 0, 0, 0.5),
+                    0 10px 10px rgba(0, 0, 0, 0.2),
+                    inset 0 0 16px rgba(0, 0, 0, 0.85),
+                    inset 0 0 24px rgba(0, 0, 0, 0.75),
+                    inset 0 0 48px rgba(0, 0, 0, 0.2);
+            perspective: 300px;
+
+            .button-wrapper {
+                width: 102px;
+                height: 102px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                background-image: linear-gradient(0, #86969c, #eff1f1);
+                box-shadow:
+                        0 9px 14px rgba(0, 0, 0, 0.5),
+                        0 19px 8px -2px rgba(0, 0, 0, 0.2),
+                        0 33px 8px rgba(0, 0, 0, 0.4),
+                        0 -12px 10px rgba(255, 255, 255, 0.5),
+                        inset 0 3px 3px rgba(255, 255, 255, 0.6),
+                        inset 0 -3px 3px rgba(89, 91, 92, 0.6);
+                transition: 0.25s ease-out;
+
+                .inside {
+                    position: relative;
+                    width: 85px;
+                    height: 85px;
+                    border-radius: 50%;
+                    background-image: linear-gradient(180deg, #adb9bf, #d4dbdd);
+                    box-shadow:
+                            inset 0 3px 6px rgba(152, 160, 163, 0.4),
+                            inset 0 -3px 6px rgba(238, 244, 246, 0.4);
+
+                    .dot {
+                        position: absolute;
+                        transform: translate(-50%,-50%);
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 50%;
+                        background: #e7ecef;
+                        box-shadow:
+                                0 2px 2px rgba(0, 0, 0, 0.3),
+                                inset 0 -2px 2px rgba(0, 0, 0, 0.2);
+
+                        &:nth-child(1) {left: 50%;top: 10%;}
+                        &:nth-child(2) {left: 90%;top: 50%;}
+                        &:nth-child(3) {left: 50%;top: 90%;}
+                        &:nth-child(4) {left: 10%;top: 50%;}
+                    }
+                }
+            }
+        }
+    }
+
+    .icon {
+        position: absolute;
+        transform: translate(-50%,-50%);
+        width: 30px;
+        fill: #b4b9bd;
+        filter: drop-shadow(1px 1px 1px #f4f4f4);
+
+        &:nth-child(2) {top: -12%;left: 50%;}
+        &:nth-child(3) {top: 50%;left: 112%;}
+        &:nth-child(4) {top: 112%;left: 50%;}
+        &:nth-child(5) {top: 50%;left: -12%;}
+    }
+
+    .icon.active {
+        fill: #e3a560;
+        filter: brightness(0.9) drop-shadow(0 0 2px #e3a15b) drop-shadow(0 0 1px #fff);
+    }
+}
+
+.touch {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 999;
+    width: 600px;
+    height: 600px;
+    transform: rotate(45deg);
+
+    > div {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+body:has(.t1:hover) {
+    .button-wrapper {
+        transform-style: preserve-3d;
+        transform: translate(0, -5px) rotateX(8deg);
+        box-shadow:
+                0 7px 14px rgba(0, 0, 0, 0.5),
+                0 14px 8px -5px rgba(0, 0, 0, 0.3),
+                0 24px 8px rgba(0, 0, 0, 0.4),
+                0 -6px 10px rgba(255, 255, 255, 0.5),
+                inset 0 3px 3px rgba(255, 255, 255, 0.6),
+                inset 0 -3px 3px rgba(89, 91, 92, 0.6) !important;
+    }
+
+    .icon:nth-child(2) {
+        fill: #eaa75d;
+        filter: brightness(0.9) drop-shadow(0 0 2px #f1b475) drop-shadow(0 0 1px #fff);
+    }
+}
+
+body:has(.t2:hover) {
+    .button-wrapper {
+        transform-style: preserve-3d;
+        transform: translate(5px, 0) rotateY(8deg);
+        box-shadow:
+                2px 9px 14px rgba(0, 0, 0, 0.4),
+                2px 19px 8px -2px rgba(0, 0, 0, 0.2),
+                2px 30px 8px rgba(0, 0, 0, 0.3),
+                -6px -14px 10px rgba(255, 255, 255, 0.5),
+                inset 0 3px 3px rgba(255, 255, 255, 0.6),
+                inset 0 -3px 3px rgba(89, 91, 92, 0.6) !important;
+    }
+
+    .icon:nth-child(3) {
+        fill: #e3a560;
+        filter: brightness(0.9) drop-shadow(0 0 2px #e3a15b) drop-shadow(0 0 1px #fff);
+    }
+}
+
+body:has(.t3:hover) {
+    .button-wrapper {
+        transform-style: preserve-3d;
+        transform: translate(-5px, 0) rotateY(-8deg);
+        box-shadow:
+                -2px 9px 14px rgba(0, 0, 0, 0.4),
+                -2px 19px 8px -2px rgba(0, 0, 0, 0.2),
+                -2px 30px 8px rgba(0, 0, 0, 0.3),
+                6px -14px 10px rgba(255, 255, 255, 0.5),
+                inset 0 3px 3px rgba(255, 255, 255, 0.6),
+                inset 0 -3px 3px rgba(89, 91, 92, 0.6) !important;
+    }
+
+    .icon:nth-child(5) {
+        fill: #e3a560;
+        filter: brightness(0.9) drop-shadow(0 0 2px #e3a15b) drop-shadow(0 0 1px #fff);
+    }
+}
+
+body:has(.t4:hover) {
+    .button-wrapper {
+        transform-style: preserve-3d;
+        transform: translate(0, 5px) rotateX(-8deg);
+        box-shadow:
+                0 5px 14px rgba(0, 0, 0, 0.6),
+                0 19px 8px -2px rgba(0, 0, 0, 0.3),
+                0 34px 8px rgba(0, 0, 0, 0.4),
+                0 -14px 10px rgba(255, 255, 255, 0.65),
+                inset 0 3px 3px rgba(255, 255, 255, 0.6),
+                inset 0 -3px 3px rgba(89, 91, 92, 0.6) !important;
+    }
+
+    .icon:nth-child(4) {
+        fill: #e3a560;
+        filter: brightness(0.9) drop-shadow(0 0 2px #e3a15b) drop-shadow(0 0 1px #fff);
+    }
+}
+
+
